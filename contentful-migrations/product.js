@@ -30,5 +30,18 @@ module.exports = function (migration, context) {
         },
       ],
     });
+  product
+    .createField("images")
+    .name("Images")
+    .type("Array")
+    .items({
+      type: "Link",
+      linkType: "Entry",
+      validations: [
+        {
+          linkContentType: ["productImage"],
+        },
+      ],
+    });  
   product.createField("medusaId").name("Medusa ID").type("Symbol");
 };
